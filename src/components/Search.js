@@ -1,32 +1,23 @@
 import React, { useState } from 'react'
-import { useStaticQuery, graphql, navigate } from 'gatsby'
-import { useFlexSearch } from 'react-use-flexsearch'
-import queryString from 'query-string'
+import { navigate } from 'gatsby'
 import { useLocation } from '@reach/router'
+import queryString from 'query-string'
 
 import { Searchbar } from './Searchbar'
-
 import { Posts } from './Posts'
 
 export const Search = ({ data, section }) => {
   const location = useLocation()
-
   const { search } = queryString.parse(location.search)
   const [query, setQuery] = useState(search || '')
-  const { localSearchPages } = useStaticQuery(graphql`
-    query {
-      localSearchPages {
-        index
-        store
-      }
-    }
-  `)
 
-  const results = useFlexSearch(
-    query,
-    localSearchPages.index,
-    localSearchPages.store
-  )
+  // Filter posts based on query
+  const results = query
+    ? data.filter((post) => {
+        const text = `${post.title} ${post.tags?.join(' ') || ''}`.toLowerCase()
+        return text.includes(query.toLowerCase())
+      })
+    : data
 
   return (
     <>
@@ -39,7 +30,6 @@ export const Search = ({ data, section }) => {
             : ''
 
           navigate(updatedValue)
-
           setQuery(event.target.value)
         }}
         style={{ marginBottom: '2.5rem' }}

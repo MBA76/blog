@@ -13,8 +13,7 @@ import { PageLayout } from '../components/PageLayout'
 import { projectsList } from '../data/projectsList'
 import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
-import newMoon from '../../content/images/new-moon.svg'
-import floppy from '../../content/images/floppylogo.png'
+import floppy from '../assets/floppylogo.png'
 import blog from '../assets/nav-blog.png'
 import projects from '../assets/nav-projects.png'
 import github from '../assets/nav-github.png'
@@ -36,22 +35,24 @@ export default function Index({ data }) {
 
   return (
     <>
+      {/* Meta etiketleri ve SEO ayarları */}
       <Helmet title={config.siteTitle} />
       <SEO />
 
       <PageLayout>
+        {/* Hero bölümü - Ana başlık ve tanıtım */}
         <Hero type="index">
           <div className="hero-wrapper">
             <div>
-              <h1>Hey, I'm Tania!</h1>
+              <h1>Hey, I'm Berkcan!</h1>
               <p className="hero-description">
-                I'm a software engineer, open-source creator, and former
-                professional chef. I've been making websites since 1998 and{' '}
-                <Link to="/blog">writing on this blog</Link> for over ten years!
+                I'm a DevOps engineer, system builder, and product-minded developer. I design and operate scalable infrastructures, build CI/CD pipelines, and turn complex systems into reliable platforms. and{' '}
+                <Link to="/blog">I try writing on this blog</Link> for over five years! But, right now the blog is onboard!
               </p>
               <p className="hero-description">
-                Everything on this site is written by me, not AI.
+                Everything on this site is written by me, not AI(Yes only me).
               </p>
+
               <p
                 className="flex-wrap flex-align-center gap"
                 style={{ marginBottom: 0 }}
@@ -59,6 +60,7 @@ export default function Index({ data }) {
                 <Link className="button" to="/me">
                   <img src={floppy} alt="Floppy Logo" /> About Me
                 </Link>
+               {/* Ana eylem butonları 
                 <a
                   href="https://taniarascia.substack.com"
                   className="button"
@@ -67,7 +69,8 @@ export default function Index({ data }) {
                   target="_blank"
                 >
                   <img src={newMoon} alt="New Moon Logo" /> Email Newsletter
-                </a>
+                </a>         
+                 */}
               </p>
             </div>
             <div className="hero-image-container">
@@ -76,6 +79,7 @@ export default function Index({ data }) {
           </div>
         </Hero>
 
+        {/* Blog yazıları bölümü */}
         <section className="section-index">
           <Heading
             title="Blog"
@@ -85,6 +89,7 @@ export default function Index({ data }) {
           <Posts data={articles} />
         </section>
 
+        {/* Notlar bölümü */}
         <section className="section-index">
           <Heading
             title="Notes"
@@ -94,6 +99,7 @@ export default function Index({ data }) {
           <Posts data={notes} />
         </section>
 
+        {/* Deep Dives / Derinlemesine Öğretim bölümü 
         <section className="section-index">
           <Heading
             title="Deep Dives"
@@ -118,7 +124,8 @@ export default function Index({ data }) {
             })}
           </div>
         </section>
-
+        */}
+        {/* Projeler bölümü */}
         <section>
           <Heading
             title="Projects"
@@ -143,6 +150,7 @@ export default function Index({ data }) {
                       {project.name}
                     </a>
                     <p>{project.tagline}</p>
+                    {/* Proje ile ilgili bağlantılar */}
                     <div className="card-links">
                       {project.writeup && (
                         <Link

@@ -1,5 +1,5 @@
 {
-  "name": "taniarascia.com",
+  "name": "berkcan.tech",
   "private": true,
   "version": "7.1",
   "description": "Tania Rascia's personal website.",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/taniarascia/taniarascia.com"
+    "url": "https://github.com/taniarascia/berkcan.tech"
   },
   "dependencies": {
     "gatsby": "^5.15.0",

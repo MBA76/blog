@@ -1,8 +1,8 @@
 export const projectsList = [
   {
-    name: 'taniarascia.com',
+    name: 'berkcan.tech',
     date: '2022',
-    slug: 'taniarascia.com',
+    slug: 'berkcan.tech',
     tagline: 'The source of this website',
   },
   {

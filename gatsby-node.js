@@ -13,6 +13,36 @@ function slugify(str) {
   )
 }
 
+// Schema Customization for Gatsby v5 compatibility
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+
+  createTypes(`
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter!
+      fields: Fields
+      excerpt: String!
+      html: String!
+    }
+
+    type Frontmatter {
+      title: String!
+      slug: String
+      date: Date! @dateformat
+      tags: [String]
+      categories: [String]
+      template: String
+      description: String
+      comments_off: Boolean
+      thumbnail: File
+    }
+
+    type Fields {
+      slug: String!
+    }
+  `)
+}
+
 const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 

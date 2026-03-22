@@ -3,13 +3,23 @@ module.exports = {
     title: "Tania Rascia's Website",
     author: { name: 'Tania Rascia' },
     pathPrefix: '/',
-    siteUrl: 'https://taniarascia.com',
+    siteUrl: 'https://berkcan.tech',
     description:
       'Software engineer and open-source creator. This is my digital garden.',
-    feedUrl: 'https://taniarascia.com/rss.xml',
-    logo: 'https://taniarascia.com/logo.png',
+    feedUrl: 'https://berkcan.tech/rss.xml',
+    logo: 'https://berkcan.tech/logo.png',
   },
   plugins: [
+    // ===================================================================================
+    // Schema Customization
+    // ===================================================================================
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'markdown-pages',
+        path: `${__dirname}/content`,
+      },
+    },
     // ===================================================================================
     // Meta
     // ===================================================================================
@@ -19,7 +29,7 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: "Tania Rascia's Website",
-        short_name: 'taniarascia.com',
+        short_name: 'berkcan.tech',
         description:
           'Software engineer and open source creator. This is my digital garden.',
         start_url: '/',
@@ -55,7 +65,7 @@ module.exports = {
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   custom_elements: [
                     { 'content:encoded': edge.node.html },
-                    { author: 'hello@taniarascia.com' },
+                    { author: 'hello@berkcan.tech' },
                   ],
                 })
               })
@@ -159,49 +169,49 @@ module.exports = {
     },
 
     // ===================================================================================
-    // Search
+    // Search (disabled due to Gatsby v5 compatibility issues)
     // ===================================================================================
-
-    {
-      resolve: 'gatsby-plugin-local-search',
-      options: {
-        name: 'pages',
-        engine: 'flexsearch',
-        engineOptions: {
-          encode: 'icase',
-          tokenize: 'forward',
-          async: false,
-        },
-        query: `
-          {
-            allMarkdownRemark(filter: { frontmatter: { template: { eq: "post" } } }) {
-              nodes {
-                id
-                frontmatter {
-                  title
-                  tags
-                  slug
-                  date(formatString: "MMMM DD, YYYY")
-                }
-                rawMarkdownBody
-              }
-            }
-          }
-        `,
-        ref: 'id',
-        index: ['title', 'tags'],
-        store: ['id', 'slug', 'title', 'tags', 'date'],
-        normalizer: ({ data }) =>
-          data.allMarkdownRemark.nodes.map((node) => ({
-            id: node.id,
-            slug: `/${node.frontmatter.slug}`,
-            title: node.frontmatter.title,
-            body: node.rawMarkdownBody,
-            tags: node.frontmatter.tags,
-            categories: node.frontmatter.categories,
-            date: node.frontmatter.date,
-          })),
-      },
-    },
+    // Uncomment the following plugin if you upgrade gatsby-plugin-local-search
+    // {
+    //   resolve: 'gatsby-plugin-local-search',
+    //   options: {
+    //     name: 'pages',
+    //     engine: 'flexsearch',
+    //     engineOptions: {
+    //       encode: 'icase',
+    //       tokenize: 'forward',
+    //       async: false,
+    //     },
+    //     query: `
+    //       {
+    //         allMarkdownRemark {
+    //           nodes {
+    //             id
+    //             excerpt
+    //             html
+    //             frontmatter {
+    //               title
+    //               tags
+    //               slug
+    //               date(formatString: "MMMM DD, YYYY")
+    //             }
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     ref: 'id',
+    //     index: ['title', 'tags'],
+    //     store: ['id', 'slug', 'title', 'tags', 'date'],
+    //     normalizer: ({ data }) =>
+    //       data.allMarkdownRemark.nodes.map((node) => ({
+    //         id: node.id,
+    //         slug: `/${node.frontmatter.slug}`,
+    //         title: node.frontmatter.title,
+    //         body: node.html,
+    //         tags: node.frontmatter.tags,
+    //         date: node.frontmatter.date,
+    //       })),
+    //   },
+    // },
   ],
 }
