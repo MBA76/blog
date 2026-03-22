@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "Tania Rascia's Website",
-    author: { name: 'Tania Rascia' },
+    title: "MBA's Website",
+    author: { name: 'MBA's Website' },
     pathPrefix: '/',
     siteUrl: 'https://berkcan.tech',
     description:
@@ -28,7 +28,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: "Tania Rascia's Website",
+        name: "MBA's Website",
         short_name: 'berkcan.tech',
         description:
           'Software engineer and open source creator. This is my digital garden.',
@@ -95,7 +95,7 @@ module.exports = {
             }
             `,
             output: '/rss.xml',
-            title: 'Tania Rascia | RSS Feed',
+            title: 'MBA's Website | RSS Feed',
           },
         ],
       },

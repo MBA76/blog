@@ -7,7 +7,7 @@ import logo from '../assets/logo.png'
 const links = [
   { url: 'https://taniarascia.substack.com', label: 'Email signup' },
   { url: 'https://www.berkcan.tech/rss.xml', label: 'RSS feed' },
-  { url: 'https://bsky.app/profile/tania.dev', label: 'Bluesky' },
+  { url: 'https://bsky.app/profile/berkcan.tech', label: 'Bluesky' },
   { url: 'https://ko-fi.com/taniarascia', label: 'Buy me a coffee' },
 ]
 const madeWithLinks = [
