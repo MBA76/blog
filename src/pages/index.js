@@ -74,7 +74,7 @@ export default function Index({ data }) {
               </p>
             </div>
             <div className="hero-image-container">
-              <img src="/ram.png" className="hero-image" alt="RAM Ram" />
+              <img src="/beko.png" className="hero-image" alt="RAM Ram" />
             </div>
           </div>
         </Hero>
@@ -125,7 +125,7 @@ export default function Index({ data }) {
           </div>
         </section>
         */}
-        {/* Projeler bölümü */}
+        {/* Projeler bölümü 
         <section>
           <Heading
             title="Projects"
@@ -150,7 +150,7 @@ export default function Index({ data }) {
                       {project.name}
                     </a>
                     <p>{project.tagline}</p>
-                    {/* Proje ile ilgili bağlantılar */}
+                   
                     <div className="card-links">
                       {project.writeup && (
                         <Link
@@ -180,8 +180,10 @@ export default function Index({ data }) {
                   </div>
                 )
               })}
+            
           </div>
         </section>
+        */}
       </PageLayout>
     </>
   )

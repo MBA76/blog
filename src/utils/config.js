@@ -3,7 +3,7 @@ const config = {
   siteUrl: 'https://berkcan.tech',
   siteLogo: '/logo.png',
   description:
-    'Software engineer and open source creator. This is my digital garden.',
+    'DevOps engineer and system builder. Welcome to my camp.',
 }
 
 export default config

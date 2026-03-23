@@ -126,8 +126,8 @@
   --content-width: 760px;
   --layout-padding-vertical: 1.5rem;
   --layout-padding-horizontal: 1.5rem;
-  --sidebar-width: 260px;
-  --post-sidebar-width: 260px;
+  --sidebar-width: 300px;
+  --post-sidebar-width: 300px;
   --main-layout-width: calc(var(--post-sidebar-width) + var(--content-width));
   --font-size: 1rem;
   --anchor-padding: 0.25rem;
@@ -1155,9 +1155,33 @@ a.navbar-icon {
   }
 }
 
+.hero-image-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background: var(--color-primary);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+  }
+}
+
 .hero-image {
-  width: 100px;
-  max-width: 100px;
+  display: block;
+  position: absolute;
+  z-index: 9;
+  width: 170px;
+  max-width: 170px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hero-container {
@@ -1175,12 +1199,24 @@ a.navbar-icon {
   gap: 0.5rem;
 }
 
-@media screen and (min-width: 800px) {
-  .hero-image {
-    width: 150px;
-    max-width: 150px;
+@media screen and (min-width: 600px) {
+  .hero-image-container {
+    width: 250px;
+    height: 250px;
+
+    &::before {
+      width: 250px;
+      height: 250px;
+    }
   }
 
+  .hero-image {
+    width: 210px;
+    max-width: 210px;
+  }
+}
+
+@media screen and (min-width: 800px) {
   .heading {
     span {
       border: none;
@@ -1192,25 +1228,17 @@ a.navbar-icon {
   }
 
   .hero-image-container {
-    position: relative;
     margin-top: 4rem;
+    width: 300px;
+    height: 300px;
 
     &::before {
-      position: absolute;
-      top: 1rem;
-      left: 0;
-      content: '';
-      background: var(--color-primary);
-      border-radius: 50%;
-      height: 200px;
-      width: 200px;
+      width: 300px;
+      height: 300px;
     }
   }
 
   .hero-image {
-    display: block;
-    position: relative;
-    z-index: 9;
     width: 250px;
     max-width: 250px;
   }

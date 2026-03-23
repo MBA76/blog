@@ -37,6 +37,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         slug
+        description
         thumbnail {
           childImageSharp {
             gatsbyImageData(width: 40, height: 40, layout: FIXED)

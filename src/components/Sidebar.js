@@ -66,8 +66,8 @@ export const Sidebar = ({
         <h2>About Me</h2>
         <div className="sidebar-content">
           <p>
-            I'm <Link to="/me">Tania</Link>, software engineer and open-source
-            creator. This is my digital garden. 🌱
+            I'm <Link to="/me">Berkcan</Link>, DevOps engineer and architect.
+            creator. Welcome to my camp 🏕️ .
           </p>
         </div>
       </section>
@@ -86,19 +86,19 @@ export const Sidebar = ({
       <section className="sidebar-section">
         <h2>Stay Connected</h2>
         <p className="sidebar-links">
-          <a
+          {/* <a
             href="https://taniarascia.substack.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Email signup
-          </a>
+            Email signup 
+          </a>*/}
           <a
-            href="https://go.bsky.app/SmEWb8G"
+            href="https://www.linkedin.com/in/berkcan-akgul/overlay/background-image/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Bluesky
+            LinkedIn
           </a>
           <a href="/rss.xml">RSS feed</a>
         </p>

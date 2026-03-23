@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: "MBA's Website",
-    author: { name: 'MBA's Website' },
+    author: { name: "MBA's Website" },
     pathPrefix: '/',
     siteUrl: 'https://berkcan.tech',
     description:
-      'Software engineer and open-source creator. This is my digital garden.',
+      'DevOps engineer and system builder. Welcome to my camp.',
     feedUrl: 'https://berkcan.tech/rss.xml',
     logo: 'https://berkcan.tech/logo.png',
   },
@@ -31,7 +31,7 @@ module.exports = {
         name: "MBA's Website",
         short_name: 'berkcan.tech',
         description:
-          'Software engineer and open source creator. This is my digital garden.',
+          'DevOps engineer and system builder. Welcome to my camp.',
         start_url: '/',
         background_color: 'white',
         // theme_color: '#959af8',
@@ -95,7 +95,7 @@ module.exports = {
             }
             `,
             output: '/rss.xml',
-            title: 'MBA's Website | RSS Feed',
+            title: "MBA's Website | RSS Feed",
           },
         ],
       },
