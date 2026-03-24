@@ -1,5 +1,5 @@
-export const projectsList = [
-  {
+export const projectsList = []
+  /*{
     name: 'berkcan.tech',
     date: '2022',
     slug: 'berkcan.tech',
@@ -89,3 +89,4 @@ export const projectsList = [
     tagline: 'A schema-based form system',
   },
 ]
+*/

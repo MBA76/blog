@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/taniarascia/berkcan.tech"
+    "url": "https://github.com/MBA76/berkcan.tech"
   },
   "dependencies": {
     "gatsby": "^5.15.0",

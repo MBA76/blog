@@ -5,14 +5,14 @@ import github from '../assets/nav-github.png'
 import logo from '../assets/logo.png'
 
 const links = [
-  { url: 'https://taniarascia.substack.com', label: 'Email signup' },
+  { url: 'https://medium.com/@mberkcan1532', label: 'Medium' },
   { url: 'https://www.berkcan.tech/rss.xml', label: 'RSS feed' },
-  { url: 'https://bsky.app/profile/berkcan.tech', label: 'Bluesky' },
-  { url: 'https://ko-fi.com/taniarascia', label: 'Buy me a coffee' },
+  { url: 'https://www.linkedin.com/in/berkcan-akgul', label: 'LinkedIn' },
+  {/* url: 'https://ko-fi.com/taniarascia', label: 'Buy me a coffee' */},
 ]
 const madeWithLinks = [
   { url: 'https://www.gatsbyjs.org', label: 'Gatsby', icon: gatsby },
-  { url: 'https://github.com/taniarascia', label: 'GitHub', icon: github },
+  { url: 'https://github.com/MBA76', label: 'GitHub', icon: github },
   { url: 'https://www.netlify.com', label: 'Netlify', icon: logo },
 ]
 
