@@ -14,6 +14,21 @@ export function getSimplifiedPosts(posts, options = {}) {
   }))
 }
 
+export function extractMarkdownLinks(markdown = '') {
+  const links = []
+  const markdownLinkRegex = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g
+  let match
+
+  while ((match = markdownLinkRegex.exec(markdown)) !== null) {
+    links.push({
+      label: match[1].trim(),
+      url: match[2].trim(),
+    })
+  }
+
+  return links
+}
+
 export function getTaxonomyFromPosts(posts, taxonomy) {
   return posts
     .reduce((acc, post) => {

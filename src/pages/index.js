@@ -11,7 +11,7 @@ import { Heading } from '../components/Heading'
 import { Hero } from '../components/Hero'
 import { PageLayout } from '../components/PageLayout'
 // import { projectsList } from '../data/projectsList'
-import { getSimplifiedPosts } from '../utils/helpers'
+import { extractMarkdownLinks, getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
 import floppy from '../assets/floppylogo.png'
 import blog from '../assets/nav-blog.png'
@@ -20,13 +20,11 @@ import github from '../assets/nav-github.png'
 
 export default function Index({ data }) {
   const latestNotes = data.latestNotes.edges
-  const latestArticles = data.latestArticles.edges
   const highlights = data.highlights.edges
   const notes = useMemo(() => getSimplifiedPosts(latestNotes), [latestNotes])
-
-  const articles = useMemo(
-    () => getSimplifiedPosts(latestArticles),
-    [latestArticles]
+  const blogLinks = useMemo(
+    () => extractMarkdownLinks(data.blogPage.rawMarkdownBody),
+    [data.blogPage.rawMarkdownBody]
   )
   const simplifiedHighlights = useMemo(
     () => getSimplifiedPosts(highlights, { thumbnails: true }),
@@ -83,10 +81,22 @@ export default function Index({ data }) {
         <section className="section-index">
           <Heading
             title="Blog"
-            description="Guides, references, and tutorials."
+            description={data.blogPage.frontmatter.description}
             icon={projects}
           />
-          <Posts data={articles} />
+          <div className="posts">
+            {blogLinks.map((item) => (
+              <a
+                key={item.url}
+                className="post"
+                href={item.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div>{item.label}</div>
+              </a>
+            ))}
+          </div>
         </section>
 
         {/* Notlar bölümü */}
@@ -218,29 +228,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    latestArticles: allMarkdownRemark(
-      limit: 5
-      sort: { frontmatter: { date: DESC } }
-      filter: {
-        frontmatter: {
-          template: { eq: "post" }
-          categories: { eq: "Technical" }
-        }
-      }
-    ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            tags
-            categories
-          }
-        }
+    blogPage: markdownRemark(frontmatter: { slug: { eq: "blog" } }) {
+      rawMarkdownBody
+      frontmatter {
+        description
       }
     }
     highlights: allMarkdownRemark(
