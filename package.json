@@ -2,8 +2,8 @@
   "name": "berkcan.tech",
   "private": true,
   "version": "7.1",
-  "description": "Tania Rascia's personal website.",
-  "author": "Tania Rascia",
+  "description": "Berkcan Akgul's personal website.",
+  "author": "Berkcan Akgul",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
