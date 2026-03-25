@@ -9,7 +9,7 @@ services:
     container_name: gatsby-blog
 
   blog-dev:
-    image: node:18-alpine
+    image: node:20-alpine
     working_dir: /app
     volumes:
       - .:/app
@@ -21,7 +21,7 @@ services:
       - NODE_ENV=development
       - GATSBY_TELEMETRY_DISABLED=1
       - CHOKIDAR_USEPOLLING=true
-    command: sh -c "npm ci --legacy-peer-deps && npm run clean && npm run develop -- --host 0.0.0.0 --port 8000"
+    command: sh -c "npm config set fetch-retries 5 && npm config set fetch-retry-mintimeout 20000 && npm config set fetch-retry-maxtimeout 120000 && npm config set fetch-timeout 300000 && npm ci --legacy-peer-deps && npm run clean && npm run develop -- --host 0.0.0.0 --port 8000"
     container_name: gatsby-blog-dev
 
 volumes:
